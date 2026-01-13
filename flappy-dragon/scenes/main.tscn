@@ -16,11 +16,14 @@ game_over_scene = ExtResource("3_tefeu")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = -10
-motion_mirroring = Vector2(224, 0)
+motion_mirroring = Vector2(272, 0)
 
 [node name="Sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
 texture = ExtResource("1_o5qli")
 centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 272, 160)
 
 [node name="Dragon" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(38, 70)

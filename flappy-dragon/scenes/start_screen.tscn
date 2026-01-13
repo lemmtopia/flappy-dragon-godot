@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbkpidto345ti"]
+[gd_scene load_steps=6 format=3 uid="uid://fms2q5w5nswo"]
 
-[ext_resource type="Script" uid="uid://cklqk8uh3ap5h" path="res://scripts/game_over.gd" id="1_tbwuq"]
-[ext_resource type="Theme" uid="uid://bl4hu5la863p3" path="res://themes/label.tres" id="1_xeevv"]
-[ext_resource type="Theme" uid="uid://42um7cqohplm" path="res://themes/button.tres" id="2_wqhvx"]
+[ext_resource type="Theme" uid="uid://bl4hu5la863p3" path="res://themes/label.tres" id="1_o7i0r"]
+[ext_resource type="Theme" uid="uid://42um7cqohplm" path="res://themes/button.tres" id="2_he1sj"]
 
 [sub_resource type="Animation" id="Animation_xeevv"]
 length = 0.001
@@ -41,10 +40,11 @@ _data = {
 &"game_over": SubResource("Animation_wqhvx")
 }
 
-[node name="GameOver" type="CanvasLayer"]
-script = ExtResource("1_tbwuq")
+[node name="StartScreen" type="Node2D"]
 
-[node name="TitleLabel" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -58,13 +58,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.8)
 pivot_offset = Vector2(26, 10)
-theme = ExtResource("1_xeevv")
+theme = ExtResource("1_o7i0r")
 theme_override_colors/font_color = Color(0.88235295, 0.23137255, 0.2, 1)
-text = "Game Over"
+text = "Flappy Dragon"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -76,13 +76,11 @@ offset_right = 26.0
 offset_bottom = 26.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_wqhvx")
-text = "Restart"
+theme = ExtResource("2_he1sj")
+text = "Start Game"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_tbwuq")
 }
 autoplay = "game_over"
-
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

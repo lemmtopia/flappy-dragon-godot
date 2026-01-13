@@ -1,6 +1,7 @@
 extends Node2D
 
 signal start_game
+signal hit
 
 @onready var parallax_background: ParallaxBackground = $ParallaxBackground
 @onready var building_timer: Timer = $BuildingTimer
@@ -22,6 +23,8 @@ func _on_dragon_hit() -> void:
 	var game_over = game_over_scene.instantiate()
 	game_over.connect("restart_game", _on_game_over_restart_game)
 	add_child(game_over)
+	
+	hit.emit()
 	
 	building_timer.stop()
 	scroll_speed = 0
