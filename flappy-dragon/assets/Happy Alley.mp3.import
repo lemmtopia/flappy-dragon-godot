@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cswta1mpm0fba"
+path="res://.godot/imported/Happy Alley.mp3-f9fe1626baa44be6b60fec02a6793b54.mp3str"
+
+[deps]
+
+source_file="res://assets/Happy Alley.mp3"
+dest_files=["res://.godot/imported/Happy Alley.mp3-f9fe1626baa44be6b60fec02a6793b54.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

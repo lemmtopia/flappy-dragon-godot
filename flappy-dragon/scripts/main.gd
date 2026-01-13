@@ -8,6 +8,9 @@ signal hit
 @onready var coin_timer: Timer = $CoinTimer
 @onready var score_label: Label = $CanvasLayer/ScoreLabel
 @onready var gold_ui: CanvasLayer = $GoldUI
+@onready var music: AudioStreamPlayer = $Music
+@onready var pickup_sound: AudioStreamPlayer = $PickupSound
+@onready var game_over_sound: AudioStreamPlayer = $GameOverSound
 
 @export var building_scene : PackedScene
 @export var coin_scene : PackedScene
@@ -19,6 +22,8 @@ var score : int = 0
 func _ready() -> void:
 	building_timer.start()
 	coin_timer.start()
+	
+	music.play()
 
 func _process(delta: float) -> void:
 	parallax_background.scroll_offset.x -= scroll_speed * delta
@@ -31,6 +36,9 @@ func _on_dragon_hit() -> void:
 	
 	if score > Globals.high_score:
 		Globals.high_score = score
+	
+	game_over_sound.play()
+	music.stop()
 	
 	Globals.save_game()
 	hit.emit()
@@ -73,4 +81,7 @@ func _on_coin_timer_timeout() -> void:
 func _on_coin_add_gold():
 	Globals.gold += 1
 	Globals.save_game()
+	
+	pickup_sound.play()
+	
 	gold_changed.emit()
