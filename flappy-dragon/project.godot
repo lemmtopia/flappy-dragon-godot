@@ -23,6 +23,10 @@ window/size/window_width_override=672
 window/size/window_height_override=480
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+obstacles=""
+
 [input]
 
 flap={

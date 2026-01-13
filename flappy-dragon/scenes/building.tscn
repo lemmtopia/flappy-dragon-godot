@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://drxp8ydvq73vg"]
+
+[ext_resource type="Texture2D" uid="uid://bd3x4jjq7vkrk" path="res://assets/building.png" id="1_n8bkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvy8r"]
+size = Vector2(28, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejq8p"]
+size = Vector2(20, 163)
+
+[node name="Building" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_n8bkc")
+centered = false
+
+[node name="Obstacle" type="StaticBody2D" parent="." groups=["obstacles"]]
+collision_layer = 2
+
+[node name="Shape" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2(16, 34)
+shape = SubResource("RectangleShape2D_uvy8r")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Shape" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(41, -77.5)
+shape = SubResource("RectangleShape2D_ejq8p")

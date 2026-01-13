@@ -1,18 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh5xq71erjeow"]
+[gd_scene load_steps=5 format=3 uid="uid://bh5xq71erjeow"]
 
 [ext_resource type="Script" uid="uid://5kar8ytf0lve" path="res://scripts/dragon.gd" id="1_5q8uj"]
 [ext_resource type="Texture2D" uid="uid://bjs3xi0i3sel4" path="res://assets/dragon.png" id="1_vfigm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q8uj"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmr38"]
 size = Vector2(26, 8)
 
 [node name="Dragon" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_5q8uj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_vfigm")
 hframes = 2
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5q8uj")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="Shape" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_lmr38")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

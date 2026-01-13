@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://br0n6k6fk4p1e"]
+[gd_scene load_steps=4 format=3 uid="uid://br0n6k6fk4p1e"]
 
 [ext_resource type="Texture2D" uid="uid://djsmm1fvayngy" path="res://assets/sky.png" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bh5xq71erjeow" path="res://scenes/dragon.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://drxp8ydvq73vg" path="res://scenes/building.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D"]
 
@@ -17,3 +18,6 @@ centered = false
 
 [node name="Dragon" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(38, 70)
+
+[node name="Building" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(27, 124)
