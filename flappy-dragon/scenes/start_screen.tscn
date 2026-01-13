@@ -60,6 +60,7 @@ position = Vector2(38, 70)
 is_start_screen = true
 
 [node name="GoldUI" parent="." instance=ExtResource("4_5pab1")]
+is_in_main_scene = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -134,21 +135,17 @@ libraries = {
 autoplay = "start_screen"
 
 [node name="HighScoreLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -15.0
-offset_top = -31.0
 offset_right = 15.0
-offset_bottom = -2.0
+offset_bottom = 29.0
 grow_horizontal = 2
-grow_vertical = 0
 theme = ExtResource("1_o7i0r")
 text = "0"
 horizontal_alignment = 1
-vertical_alignment = 2
 
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]

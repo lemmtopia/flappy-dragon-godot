@@ -53,6 +53,7 @@ text = "0
 horizontal_alignment = 1
 
 [node name="GoldUI" parent="." instance=ExtResource("8_tipki")]
+is_in_main_scene = true
 
 [connection signal="hit" from="Dragon" to="." method="_on_dragon_hit"]
 [connection signal="timeout" from="BuildingTimer" to="." method="_on_building_timer_timeout"]

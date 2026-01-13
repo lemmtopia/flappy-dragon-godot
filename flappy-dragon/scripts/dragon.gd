@@ -13,6 +13,9 @@ signal hit
 var can_control : bool = true
 var is_dead : bool = false
 
+func _ready():
+	sprite.texture = load(Globals.skin_array[Globals.skin_index].path)
+
 func _physics_process(delta: float) -> void:
 	if not is_start_screen:
 		velocity.y += gravity * delta
