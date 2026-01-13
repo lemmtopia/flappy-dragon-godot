@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh5xq71erjeow"]
 
 [ext_resource type="Script" uid="uid://5kar8ytf0lve" path="res://scripts/dragon.gd" id="1_5q8uj"]
-[ext_resource type="Texture2D" uid="uid://bjs3xi0i3sel4" path="res://assets/dragon.png" id="1_vfigm"]
+[ext_resource type="Texture2D" uid="uid://bjs3xi0i3sel4" path="res://assets/dragon_green.png" id="1_vfigm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q8uj"]
 size = Vector2(20, 6)

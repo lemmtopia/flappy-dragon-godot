@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://br0n6k6fk4p1e"]
+[gd_scene load_steps=9 format=3 uid="uid://br0n6k6fk4p1e"]
 
 [ext_resource type="Script" uid="uid://cy6lwjnaegapl" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://djsmm1fvayngy" path="res://assets/sky.png" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bh5xq71erjeow" path="res://scenes/dragon.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://ch5y2qiiv3jj2" path="res://scenes/coin.tscn" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://drxp8ydvq73vg" path="res://scenes/building.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dbkpidto345ti" path="res://scenes/game_over.tscn" id="3_tefeu"]
 [ext_resource type="Theme" uid="uid://bl4hu5la863p3" path="res://themes/label.tres" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://xcqliphueso" path="res://scenes/gold_ui.tscn" id="8_tipki"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jyhfs")
 building_scene = ExtResource("3_sugp2")
+coin_scene = ExtResource("3_o6xl0")
 game_over_scene = ExtResource("3_tefeu")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -31,6 +34,9 @@ position = Vector2(38, 70)
 [node name="BuildingTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="CoinTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
@@ -46,6 +52,8 @@ text = "0
 "
 horizontal_alignment = 1
 
-[connection signal="start_game" from="." to="." method="_on_start_game"]
+[node name="GoldUI" parent="." instance=ExtResource("8_tipki")]
+
 [connection signal="hit" from="Dragon" to="." method="_on_dragon_hit"]
 [connection signal="timeout" from="BuildingTimer" to="." method="_on_building_timer_timeout"]
+[connection signal="timeout" from="CoinTimer" to="." method="_on_coin_timer_timeout"]

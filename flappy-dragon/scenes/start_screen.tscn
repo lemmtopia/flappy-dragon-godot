@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://fms2q5w5nswo"]
+[gd_scene load_steps=10 format=3 uid="uid://fms2q5w5nswo"]
 
 [ext_resource type="Script" uid="uid://bgwet1uuonegw" path="res://scripts/start_screen.gd" id="1_hm208"]
 [ext_resource type="Theme" uid="uid://bl4hu5la863p3" path="res://themes/label.tres" id="1_o7i0r"]
 [ext_resource type="Theme" uid="uid://42um7cqohplm" path="res://themes/button.tres" id="2_he1sj"]
 [ext_resource type="PackedScene" uid="uid://bh5xq71erjeow" path="res://scenes/dragon.tscn" id="2_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://djsmm1fvayngy" path="res://assets/sky.png" id="3_he1sj"]
+[ext_resource type="PackedScene" uid="uid://xcqliphueso" path="res://scenes/gold_ui.tscn" id="4_5pab1"]
 
 [sub_resource type="Animation" id="Animation_xeevv"]
 length = 0.001
@@ -58,6 +59,8 @@ region_rect = Rect2(0, 0, 272, 160)
 position = Vector2(38, 70)
 is_start_screen = true
 
+[node name="GoldUI" parent="." instance=ExtResource("4_5pab1")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer"]
@@ -67,9 +70,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -24.0
-offset_top = -33.5
+offset_top = -59.5
 offset_right = 28.0
-offset_bottom = -10.5
+offset_bottom = -36.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -86,13 +89,43 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -26.0
-offset_top = 5.5
+offset_top = -12.5
 offset_right = 26.0
-offset_bottom = 26.5
+offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_he1sj")
 text = "Start Game"
+
+[node name="ShopButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 12.5
+offset_right = 26.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_he1sj")
+text = "Shop"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 37.5
+offset_right = 26.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_he1sj")
+text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
@@ -100,4 +133,22 @@ libraries = {
 }
 autoplay = "start_screen"
 
+[node name="HighScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -31.0
+offset_right = 15.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_o7i0r")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]

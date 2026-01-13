@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://xcqliphueso"]
+
+[ext_resource type="Script" uid="uid://g1pblhg7jjwu" path="res://scripts/gold_ui.gd" id="1_404u8"]
+[ext_resource type="Texture2D" uid="uid://cyk80vl8etkbf" path="res://assets/Full Coins.png" id="1_s4g73"]
+[ext_resource type="Theme" uid="uid://bl4hu5la863p3" path="res://themes/label.tres" id="2_404u8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(16, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(32, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ikuy"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(48, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnlwo"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(64, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jig8b"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(80, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmuha"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(96, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfxoj"]
+atlas = ExtResource("1_s4g73")
+region = Rect2(112, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlk54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i64fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11l1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ikuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnlwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jig8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmuha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfxoj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="GoldUI" type="CanvasLayer"]
+script = ExtResource("1_404u8")
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 2)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xlk54")
+autoplay = "default"
+centered = false
+
+[node name="GoldLabel" type="Label" parent="."]
+offset_left = 13.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 27.0
+theme = ExtResource("2_404u8")
+text = "0"

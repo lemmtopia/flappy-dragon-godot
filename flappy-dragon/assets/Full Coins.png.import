@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjs3xi0i3sel4"
-path="res://.godot/imported/dragon.png-07e3423f5a8614e88193baf4eb1ce12b.ctex"
+uid="uid://cyk80vl8etkbf"
+path="res://.godot/imported/Full Coins.png-a69f824b9987d727fe0cb75301fd241d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dragon.png"
-dest_files=["res://.godot/imported/dragon.png-07e3423f5a8614e88193baf4eb1ce12b.ctex"]
+source_file="res://assets/Full Coins.png"
+dest_files=["res://.godot/imported/Full Coins.png-a69f824b9987d727fe0cb75301fd241d.ctex"]
 
 [params]
 
