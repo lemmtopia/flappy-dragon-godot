@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://br0n6k6fk4p1e"]
+
+[ext_resource type="Texture2D" uid="uid://djsmm1fvayngy" path="res://assets/sky.png" id="1_o5qli"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Sky" type="Sprite2D" parent="."]
+texture = ExtResource("1_o5qli")
+centered = false
