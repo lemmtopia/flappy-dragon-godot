@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://br0n6k6fk4p1e"]
+[gd_scene load_steps=3 format=3 uid="uid://br0n6k6fk4p1e"]
 
 [ext_resource type="Texture2D" uid="uid://djsmm1fvayngy" path="res://assets/sky.png" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bh5xq71erjeow" path="res://scenes/dragon.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Sky" type="Sprite2D" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -10
+motion_mirroring = Vector2(224, 0)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("1_o5qli")
 centered = false
+
+[node name="Dragon" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(38, 70)
