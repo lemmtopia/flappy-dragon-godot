@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="flappy-dragon"
-run/main_scene="uid://br0n6k6fk4p1e"
+run/main_scene="uid://fms2q5w5nswo"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 

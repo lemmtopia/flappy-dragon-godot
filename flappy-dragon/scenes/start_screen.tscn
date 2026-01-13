@@ -1,46 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://fms2q5w5nswo"]
+[gd_scene load_steps=9 format=3 uid="uid://fms2q5w5nswo"]
 
+[ext_resource type="Script" uid="uid://bgwet1uuonegw" path="res://scripts/start_screen.gd" id="1_hm208"]
 [ext_resource type="Theme" uid="uid://bl4hu5la863p3" path="res://themes/label.tres" id="1_o7i0r"]
 [ext_resource type="Theme" uid="uid://42um7cqohplm" path="res://themes/button.tres" id="2_he1sj"]
+[ext_resource type="PackedScene" uid="uid://bh5xq71erjeow" path="res://scenes/dragon.tscn" id="2_r2jwc"]
+[ext_resource type="Texture2D" uid="uid://djsmm1fvayngy" path="res://assets/sky.png" id="3_he1sj"]
 
 [sub_resource type="Animation" id="Animation_xeevv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TitleLabel:scale")
+tracks/0/path = NodePath("TitleLabel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.9, 0.8)]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_wqhvx"]
-resource_name = "game_over"
+[sub_resource type="Animation" id="Animation_r2jwc"]
+resource_name = "start_screen"
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TitleLabel:scale")
+tracks/0/path = NodePath("TitleLabel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.9, 0.8), Vector2(1, 1), Vector2(1.5, 1.3), Vector2(1, 1), Vector2(2, 2)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbwuq"]
 _data = {
 &"RESET": SubResource("Animation_xeevv"),
-&"game_over": SubResource("Animation_wqhvx")
+&"start_screen": SubResource("Animation_r2jwc")
 }
 
 [node name="StartScreen" type="Node2D"]
+script = ExtResource("1_hm208")
+
+[node name="Sky" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("3_he1sj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 272, 160)
+
+[node name="Dragon" parent="." instance=ExtResource("2_r2jwc")]
+position = Vector2(38, 70)
+is_start_screen = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -56,10 +72,9 @@ offset_right = 28.0
 offset_bottom = -10.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9, 0.8)
+scale = Vector2(2, 2)
 pivot_offset = Vector2(26, 10)
 theme = ExtResource("1_o7i0r")
-theme_override_colors/font_color = Color(0.88235295, 0.23137255, 0.2, 1)
 text = "Flappy Dragon"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -83,4 +98,6 @@ text = "Start Game"
 libraries = {
 &"": SubResource("AnimationLibrary_tbwuq")
 }
-autoplay = "game_over"
+autoplay = "start_screen"
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]

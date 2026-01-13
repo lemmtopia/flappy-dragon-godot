@@ -9,12 +9,12 @@ signal hit
 @export var flap_strength : float = 150
 @export var gravity : float = 500
 
-var is_start_game : bool = true
+@export var is_start_screen : bool = false
 var can_control : bool = true
 var is_dead : bool = false
 
 func _physics_process(delta: float) -> void:
-	if is_start_game:
+	if not is_start_screen:
 		velocity.y += gravity * delta
 		if Input.is_action_just_pressed("flap") and can_control:
 			velocity.y = -flap_strength

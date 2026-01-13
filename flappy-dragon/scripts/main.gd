@@ -22,7 +22,11 @@ func _process(delta: float) -> void:
 func _on_dragon_hit() -> void:
 	var game_over = game_over_scene.instantiate()
 	game_over.connect("restart_game", _on_game_over_restart_game)
+	game_over.connect("quit", _on_game_over_quit)
 	add_child(game_over)
+	
+	if score > Globals.high_score:
+		Globals.high_score = score
 	
 	hit.emit()
 	
@@ -52,3 +56,6 @@ func _on_building_timer_timeout() -> void:
 func _on_building_add_score():
 	score += 1
 	score_label.text = str(score)
+
+func _on_game_over_quit():
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
