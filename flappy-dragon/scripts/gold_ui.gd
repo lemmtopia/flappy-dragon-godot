@@ -7,7 +7,10 @@ extends CanvasLayer
 func _ready() -> void:
 	if is_in_main_scene:
 		get_parent().connect("gold_changed", _on_main_gold_changed)
+	update_gold_label()
+
+func update_gold_label():
 	gold_label.text = str(Globals.gold)
 
 func _on_main_gold_changed():
-	gold_label.text = str(Globals.gold)
+	update_gold_label()

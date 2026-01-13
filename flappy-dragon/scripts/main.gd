@@ -32,6 +32,7 @@ func _on_dragon_hit() -> void:
 	if score > Globals.high_score:
 		Globals.high_score = score
 	
+	Globals.save_game()
 	hit.emit()
 	
 	building_timer.stop()
@@ -71,4 +72,5 @@ func _on_coin_timer_timeout() -> void:
 
 func _on_coin_add_gold():
 	Globals.gold += 1
+	Globals.save_game()
 	gold_changed.emit()

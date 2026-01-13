@@ -21,6 +21,7 @@ func try_buy_item():
 	Globals.skin_array[skin_index].enabled = true
 	
 	change_button_to_equip()
+	Globals.save_game()
 
 func change_button_to_equip():
 	button.text = "Equip"
@@ -28,6 +29,7 @@ func change_button_to_equip():
 func _on_button_pressed() -> void:
 	if Globals.skin_array[skin_index].enabled == true:
 		Globals.skin_index = skin_index
+		Globals.save_game()
 	else:
 		try_buy_item()
 

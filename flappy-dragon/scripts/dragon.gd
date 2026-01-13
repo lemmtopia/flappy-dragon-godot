@@ -14,7 +14,7 @@ var can_control : bool = true
 var is_dead : bool = false
 
 func _ready():
-	sprite.texture = load(Globals.skin_array[Globals.skin_index].path)
+	update_skin()
 
 func _physics_process(delta: float) -> void:
 	if not is_start_screen:
@@ -44,6 +44,9 @@ func die():
 	shape.disabled = true
 	
 	hit.emit()
+
+func update_skin():
+	sprite.texture = load(Globals.skin_array[Globals.skin_index].path)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("obstacles"):

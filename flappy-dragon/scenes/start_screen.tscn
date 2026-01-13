@@ -60,7 +60,6 @@ position = Vector2(38, 70)
 is_start_screen = true
 
 [node name="GoldUI" parent="." instance=ExtResource("4_5pab1")]
-is_in_main_scene = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
