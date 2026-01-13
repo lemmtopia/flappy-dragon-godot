@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://42um7cqohplm"]
+
+[ext_resource type="FontFile" uid="uid://ikyv5qt4lrmq" path="res://assets/m3x6.ttf" id="1_dpjbf"]
+
+[resource]
+default_font = ExtResource("1_dpjbf")
+default_font_size = 16
+Button/constants/outline_size = 2
+Button/fonts/font = ExtResource("1_dpjbf")

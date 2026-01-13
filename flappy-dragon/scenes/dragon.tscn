@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bjs3xi0i3sel4" path="res://assets/dragon.png" id="1_vfigm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q8uj"]
-size = Vector2(24, 6)
+size = Vector2(20, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmr38"]
-size = Vector2(26, 8)
+size = Vector2(22, 8)
 
 [node name="Dragon" type="CharacterBody2D"]
 z_index = 10
