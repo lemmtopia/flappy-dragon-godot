@@ -21,7 +21,7 @@ window/size/viewport_width=224
 window/size/viewport_height=160
 window/size/window_width_override=672
 window/size/window_height_override=480
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [global_group]
 

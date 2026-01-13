@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://drxp8ydvq73vg"]
+[gd_scene load_steps=5 format=3 uid="uid://drxp8ydvq73vg"]
 
 [ext_resource type="Texture2D" uid="uid://bd3x4jjq7vkrk" path="res://assets/building.png" id="1_n8bkc"]
+[ext_resource type="Script" uid="uid://gwdn444f2iq" path="res://scripts/building.gd" id="1_uvy8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvy8r"]
 size = Vector2(28, 60)
@@ -9,6 +10,7 @@ size = Vector2(28, 60)
 size = Vector2(20, 163)
 
 [node name="Building" type="Node2D"]
+script = ExtResource("1_uvy8r")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_n8bkc")
@@ -27,3 +29,5 @@ collision_layer = 2
 [node name="Shape" type="CollisionShape2D" parent="ScoreArea"]
 position = Vector2(41, -77.5)
 shape = SubResource("RectangleShape2D_ejq8p")
+
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
